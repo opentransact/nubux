@@ -76,6 +76,10 @@ describe Transact do
       Transact.circulation.to_i.should==1000
     end
     
+    it "should have default memo" do
+      @transact.memo.should=="payment to #{@payee.email}"
+    end
+    
   end
   
   describe "payment to email address" do

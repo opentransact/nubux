@@ -6,11 +6,12 @@ class TransactsController < ApplicationController
   end
   
   def new
-    @transact=Transact.new params[:transact]
+    @transact=Transact.new :to=>params[:to],:amount=>params[:amount],:memo=>params[:memo]
   end
   
   def create
-    @transact=current_user.payments.create params[:transact]
+    @transact=current_user.payments.create :to=>params[:to],:amount=>params[:amount],:memo=>params[:memo]
+    redirect_to transacts_url
   end
   
   def show

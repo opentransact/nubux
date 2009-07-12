@@ -7,14 +7,18 @@ class User < ActiveRecord::Base
   
   has_many :transactions, :class_name=>"Transact",:finder_sql=>'select transacts.* from transacts where (payer_id=#{id} or payee_id=#{id})'
   
+  # The issuer is the account that issues money into the system. It is the only
+  # account allowed to have a negative balance. Set the email address of issuer in environment.rb
   def self.issuer
     find_by_email ISSUER_EMAIL
   end
   
+  # Naive implementation of balance
   def balance
     receipts.sum(:amount)-payments.sum(:amount)
   end
   
+  # Is this user the issuer?
   def issuer?
     email==ISSUER_EMAIL
   end

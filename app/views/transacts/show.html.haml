@@ -1,0 +1,12 @@
+%h1
+  Transaction details
+.widel-ledger
+  .widel-entry
+    .widel-memo.description
+      =link_to @transact.memo, transact_path(@transact),:class=>"widel-entry-id"
+    .widel-account
+      =widel_account @transact.counterparty_for(current_user)
+    .widel-timestamp{:title=>@transact.created_at.rfc822}
+      =@transact.created_at.to_formatted_s(:long)
+    .widel-amount
+      =number_to_currency(@transact.payer==current_user ? -@transact.amount : @transact.amount)

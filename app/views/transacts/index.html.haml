@@ -1,3 +1,24 @@
 %h1
   Transactions for
   = current_user.email
+  
+%table.widel-ledger
+  %tr
+    %th Description
+    %th Counter Party
+    %th Time
+    %th Amount
+  -@transactions.each do |tx|
+    %tr.widel-entry
+      %td
+        =link_to tx.memo, transact_path(tx),:class=>"widel-entry-id widel-memo"
+      %td
+        =widel_account tx.counterparty_for(current_user)
+      %td.widel-timestamp{:title=>tx.created_at.rfc822}
+        =tx.created_at.to_formatted_s(:long)
+      %td.widel-amount
+        =number_to_currency(tx.payer==current_user ? -tx.amount : tx.amount)
+  %tfooter
+    %tr
+      %td{:colspan=>3} Balance
+      %td= number_to_currency(current_user.balance)
