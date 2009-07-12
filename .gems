@@ -1,4 +1,4 @@
-smtp_tls --version '1.0.3'
+openrain-action_mailer_tls --version '1.1.3' --source gems.github.com
 haml --version '2.2.0'
 thoughtbot-clearance --version "0.6.9" --source gems.github.com
 fastercsv --version 1.5.0
