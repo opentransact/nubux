@@ -69,6 +69,10 @@ body { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333
 #logo { font-weight: bold; font-size: 1.4em; }
 #logo a { color: white; }
 
+strong { font-weight: bold; }
+
+code { font-family: 'monaco', 'bitstream vera sans mono', 'lucida console', 'andale mono', 'lucida console', monospace; }
+
 fieldset { margin-bottom: 0.5em; }
 fieldset legend { padding: 0.2em 1em; background: #ccc; font-size: 80%; font-weight: normal; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; }
 fieldset p { margin: 0; }

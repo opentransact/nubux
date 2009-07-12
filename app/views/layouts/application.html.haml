@@ -21,10 +21,13 @@
             %li
               =link_to "Transactions",transacts_path
             %li
-              =link_to "Logout","/"
+              -form_tag "/session",:method=>:delete do
+                %button logout
         -else
           %ul.top_bar
             %li.first
+              =link_to "Sign up", "/users/new"
+            %li
               =link_to "Login", "/session/new"
         
         #logo
@@ -40,10 +43,15 @@
           %ul
             %li.first 
               %a{:href=>"http://github.com/opentransact/nubux/tree/master"} NuBux GitHub
-            %li.first 
+            %li
               %a{:href=>"http://github.com/opentransact/opentransact/tree/master"} OpenTransact
+            %li
+              %a{:href=>"http://groups.google.com/group/agile-banking"} Mailing List
             -if logged_in?
               %li
                 =link_to "Applications",oauth_clients_path
-          %p &copy; 2009 Pelle Braendgaard and Stake Ventures Inc.
+          %p 
+            &copy; 2009 Pelle Braendgaard and 
+            =link_to "Stake Ventures Inc.","http://stakeventures.com"
+            Released under MIT License
         

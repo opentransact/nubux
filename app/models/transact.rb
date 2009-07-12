@@ -2,9 +2,14 @@ class Transact < ActiveRecord::Base
   belongs_to :payer,:class_name=>"User"
   belongs_to :payee,:class_name=>"User"
   
+  white_list :method=>:mini
+  
   validates_presence_of :amount,:payer,:payee
   
   before_create :set_default_memo
+  
+  default_scope :order =>"created_at desc"
+  
   
   # Issues funds to a payee
   def self.issue_to(payee,amount)
