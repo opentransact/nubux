@@ -11,6 +11,8 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-clearance', :lib => 'clearance', :source => 'http://gems.github.com', :version => '0.6.9'
   config.gem 'crafterm-comma',:lib=>'comma',:source=>"http://gems.github.com"
   config.gem 'haml', :lib => 'haml', :version => '2.2'
+  config.gem 'smtp_tls'
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
