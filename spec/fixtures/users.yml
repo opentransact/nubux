@@ -1,2 +1,8 @@
+issuer:
+  email: issuer@nubux.heroku.com
 quentin:
   email: quentin@email.inv
+bob:
+  email: bob@email.inv
+mary:
+  email: mary@email.inc
