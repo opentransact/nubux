@@ -1,3 +1,4 @@
+smtp_tls --version '1.0.3'
 haml --version '2.2.0'
 thoughtbot-clearance --version "0.6.9" --source gems.github.com
 fastercsv --version 1.5.0
