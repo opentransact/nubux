@@ -1,20 +1,18 @@
 %h1 Pay Someone
 
 -form_for @transact do |f|
-  .field
-    %label{:for=>"to"} Payee email address
-    %br
-    %input{:name=>"to",:value=>@transact.to}
-  .field
-    %label{:for=>"amount"}
-      Amount
-      ="(available #{number_to_currency(current_user.balance)})"
-    %br
-    %input{:name=>"amount",:value=>@transact.amount}
-  .field
-    %label{:for=>"memo"} Description
-    %br
-    %input{:name=>"memo",:value=>@transact.memo,:size=>60}
+  %fieldset
+    .field
+      %label{:for=>"to"} Payee email address
+      %input{:name=>"to",:value=>@transact.to}
+    .field
+      %label{:for=>"amount"}
+        Amount
+        ="(available #{number_to_currency(current_user.balance)})"
+      %input{:name=>"amount",:value=>@transact.amount}
+    .field
+      %label{:for=>"memo"} Description
+      %input{:name=>"memo",:value=>@transact.memo,:size=>60}
 
   =submit_tag "Pay"
   

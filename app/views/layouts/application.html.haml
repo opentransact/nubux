@@ -1,0 +1,49 @@
+!!! XML
+!!!
+%html{html_attrs}
+  %head
+    %title NuBux
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    %meta{:name=>"viewport",:content=>"width=700"}
+    %script{:src=>"http://www.google.com/jsapi", :type=>"text/javascript"}
+    =javascript_tag 'google.load("jquery", "1")'
+    =javascript_include_tag "application"
+  %body
+    #container
+      #header
+        -if logged_in?
+          %ul.top_bar
+            %li.first
+              =link_to "Pay",new_transact_path
+            %li
+              =link_to "Transactions",transacts_path
+            %li
+              =link_to "Logout","/"
+        -else
+          %ul.top_bar
+            %li.first
+              =link_to "Login", "/session/new"
+        
+        #logo
+          =link_to "NuBux","/"
+      #content
+        .body
+          -flash.each do |name,msg|
+            =content_tag :div, msg,:class=>'flash '+name.to_s
+          = yield
+      = yield :sidebar
+      #footer
+        .body
+          %ul
+            %li.first 
+              %a{:href=>"http://github.com/opentransact/nubux/tree/master"} NuBux GitHub
+            %li.first 
+              %a{:href=>"http://github.com/opentransact/opentransact/tree/master"} OpenTransact
+            -if logged_in?
+              %li
+                =link_to "Applications",oauth_clients_path
+          %p &copy; 2009 Pelle Braendgaard and Stake Ventures Inc.
+        

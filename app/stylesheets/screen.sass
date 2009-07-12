@@ -1,0 +1,116 @@
+@import base.sass
+@import compass/reset.sass
+@import blueprint/screen.sass
+@import compass/utilities.sass
+@import baseline.sass
+
++clean-baseline
+
+body
+  +normal-text
+  background-color= !dark_background_color
+  
+#container
+  +container
+  margin: 1em auto 1em auto
+  
+#header
+  +column(24)
+  margin-bottom: 1em
+
+  .top_bar
+    margin-top: 1em
+    padding: 0.5em
+    float: right
+
+  ul.top_bar
+    +horizontal-list
+    background-color= !dark_background_color + #222
+    +rounded(0.5em)
+    padding: 0.25em 0.5em
+    li
+      border-left: 1px solid white
+      a
+        color: #222
+    li.first
+      border-left: none
+    
+#content
+  +column(24)
+  background-color= !background_color
+  padding: 1em
+  +rounded(0.5em)
+
+  
+#footer
+  +column(24)
+  color: white
+  margin-top: 2em
+  font-size: %80
+  ul
+    +horizontal-list
+    li
+      border-left: 1px solid white
+      padding: 0 1em
+      a
+        color: #222
+      
+    li.first
+      border-left: none
+
+#header,#footer
+  a
+    +hover-link
+
+#logo
+  font-weight: bold
+  font-size: 1.4em
+  a
+    color: white
+    
+fieldset
+  margin-bottom: 0.5em
+  legend
+    padding: 0.2em 1em
+    background: #ccc
+    font-size: 80%
+    font-weight: normal
+    +rounded
+  p
+    margin: 0
+
+fieldset.not_required
+  background: #eee
+  legend
+    background: #eee
+
+  
+=label
+  display: block
+  font-size: 0.8em
+  color: #555
+  font-weight: normal
+
+label
+  +label
+.label
+  +label
+.vertical
+  label
+    display: inline
+  
+textarea
+  padding: 2px
+  
+input
+  +normal-text
+  
+table.widel-ledger
+  tr
+    td
+      padding: 0.2em
+    th
+      border-bottom: 1px solid #666
+  tr.summary
+    font-weight: bold
+    border-top: 1px solid #666

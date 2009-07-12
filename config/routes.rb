@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.access_token '/oauth/access_token',:controller=>'oauth',:action=>'access_token'
   map.test_request '/oauth/test_request',:controller=>'oauth',:action=>'test_request'
   
-  map.root :controller=>'transacts'
+  map.root :controller=>'welcome'
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

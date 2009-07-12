@@ -19,6 +19,6 @@
       %td.widel-amount
         =number_to_currency(tx.payer==current_user ? -tx.amount : tx.amount)
   %tfooter
-    %tr
+    %tr.summary
       %td{:colspan=>3} Balance
       %td= number_to_currency(current_user.balance)

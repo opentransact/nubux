@@ -1,0 +1,91 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+*:focus { outline: 0; }
+
+body { line-height: 1em; color: black; background: #fff; }
+
+ol, ul { list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: separate; border-spacing: 0; vertical-align: middle; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: "" ""; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; }
+
+img a { border: none; }
+
+body { font-size: !baseline_size; line-height: 1.5em; margin: 0; padding: 0; }
+
+h1 { margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em; }
+
+h2 { margin: 0; font-size: 1.4em; line-height: 1.071em; margin-bottom: 1.071em; }
+
+h3 { margin: 0; font-size: 1.3em; line-height: 1.154em; margin-bottom: 1.154em; }
+
+h4 { margin: 0; font-size: 1.2em; line-height: 1.25em; margin-bottom: 1.25em; }
+
+h5 { margin: 0; font-size: 1.1em; line-height: 1.364em; margin-bottom: 1.364em; }
+
+p, blockquote, pre, td, th { margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; }
+
+table { border-collapse: collapse; margin-bottom: 1.5em; }
+
+body { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; background-color: #888888; }
+
+#container { width: 950px; margin: 0 auto; overflow: hidden; display: inline-block; margin: 1em auto 1em auto; }
+#container { display: block; }
+
+#header { display: inline; float: left; margin-right: 10px; width: 950px; margin-bottom: 1em; }
+* html #header { overflow-x: hidden; }
+#header .top_bar { margin-top: 1em; padding: 0.5em; float: right; }
+#header ul.top_bar { margin: 0; padding: 0; border: 0; outline: 0; overflow: hidden; display: inline-block; background-color: #aaaaaa; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; padding: 0.25em 0.5em; }
+#header ul.top_bar { display: block; }
+#header ul.top_bar li { list-style-type: none; margin-left: 0px; white-space: nowrap; display: inline; float: left; padding-left: 4px; padding-right: 4px; }
+#header ul.top_bar li.first { padding-left: 0px; }
+#header ul.top_bar li.last { padding-right: 0px; }
+#header ul.top_bar li { border-left: 1px solid white; }
+#header ul.top_bar li a { color: #222; }
+#header ul.top_bar li.first { border-left: none; }
+
+#content { display: inline; float: left; margin-right: 10px; width: 950px; background-color: white; padding: 1em; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; }
+* html #content { overflow-x: hidden; }
+
+#footer { display: inline; float: left; margin-right: 10px; width: 950px; color: white; margin-top: 2em; font-size: %80; }
+* html #footer { overflow-x: hidden; }
+#footer ul { margin: 0; padding: 0; border: 0; outline: 0; overflow: hidden; display: inline-block; }
+#footer ul { display: block; }
+#footer ul li { list-style-type: none; margin-left: 0px; white-space: nowrap; display: inline; float: left; padding-left: 4px; padding-right: 4px; }
+#footer ul li.first { padding-left: 0px; }
+#footer ul li.last { padding-right: 0px; }
+#footer ul li { border-left: 1px solid white; padding: 0 1em; }
+#footer ul li a { color: #222; }
+#footer ul li.first { border-left: none; }
+
+#header a, #footer a { text-decoration: none; }
+#header a:hover, #footer a:hover { text-decoration: underline; }
+
+#logo { font-weight: bold; font-size: 1.4em; }
+#logo a { color: white; }
+
+fieldset { margin-bottom: 0.5em; }
+fieldset legend { padding: 0.2em 1em; background: #ccc; font-size: 80%; font-weight: normal; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; }
+fieldset p { margin: 0; }
+
+fieldset.not_required { background: #eee; }
+fieldset.not_required legend { background: #eee; }
+
+label { display: block; font-size: 0.8em; color: #555; font-weight: normal; }
+
+.label { display: block; font-size: 0.8em; color: #555; font-weight: normal; }
+
+.vertical label { display: inline; }
+
+textarea { padding: 2px; }
+
+input { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; }
+
+table.widel-ledger tr td { padding: 0.2em; }
+table.widel-ledger tr th { border-bottom: 1px solid #666; }
+table.widel-ledger tr.summary { font-weight: bold; border-top: 1px solid #666; }
