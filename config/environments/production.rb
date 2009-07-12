@@ -32,7 +32,7 @@ HOST = "nubux.heroku.com"
 config.action_mailer.delivery_method = :smtp
 require 'smtp_tls'
 
-ActionMailer::Base.server_settings = {
+ActionMailer::Base.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => "587",
   :authentication => :plain,
