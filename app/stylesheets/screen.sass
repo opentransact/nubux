@@ -30,8 +30,10 @@ body
     padding: 0.25em 0.5em
     li
       border-left: 1px solid white
-      a
+      a,button.link
         color: #222
+      
+      
     li.first
       border-left: none
     
@@ -40,6 +42,18 @@ body
   background-color= !background_color
   padding: 1em
   +rounded(0.5em)
+
+button.link
+  +normal-text
+  font-size: 1em
+  text-align: left
+  color: blue
+  background: none
+  margin: 0
+  padding: 0
+  border: none
+  cursor: pointer
+  -moz-user-select: text
 
   
 #footer
@@ -118,3 +132,4 @@ table.widel-ledger
   tr.summary
     font-weight: bold
     border-top: 1px solid #666
+

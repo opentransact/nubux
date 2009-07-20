@@ -22,7 +22,7 @@
               =link_to "Transactions",transacts_path
             %li
               -form_tag "/session",:method=>:delete do
-                %button logout
+                %button{:class=>"link"} Logout
         -else
           %ul.top_bar
             %li.first
