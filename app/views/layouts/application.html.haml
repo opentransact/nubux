@@ -2,36 +2,44 @@
 !!!
 %html{html_attrs}
   %head
-    %title NuBux
+    %title= @page_title||"NuBux"
+    
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    %link{:href=>transacts_path,:rel=>'opentransact-asset'}
     %meta{:name=>"viewport",:content=>"width=700"}
     %script{:src=>"http://www.google.com/jsapi", :type=>"text/javascript"}
     =javascript_tag 'google.load("jquery", "1")'
     =javascript_include_tag "application"
-  %body
+  %body{:class=>controller_name}
     #container
       #header
         -if logged_in?
           %ul.top_bar
             %li.first
-              =link_to "Pay",new_transact_path
+              =link_to "Pay",new_transact_path,{:rel=>'opentransact-pay'}
             %li
-              =link_to "Transactions",transacts_path
+              =link_to "Transactions",transacts_path,{:rel=>'opentransact-asset'}
             %li
               -form_tag "/session",:method=>:delete do
                 %button{:class=>"link"} Logout
+            %li
+              Your NuBux:
+              =link_to number_to_currency(current_user.balance),transacts_path,:class=>"amount"
         -else
           %ul.top_bar
             %li.first
               =link_to "Sign up", "/users/new"
             %li
               =link_to "Login", "/session/new"
+            %li
+              All NuBux:
+              %span.amount
+                =number_to_currency Transact.circulation
+        =render :partial=>"shared/logo"
         
-        #logo
-          =link_to "NuBux","/"
       #content
         .body
           -flash.each do |name,msg|
@@ -43,6 +51,8 @@
           %ul
             %li.first 
               %a{:href=>"http://github.com/opentransact/nubux/tree/master"} NuBux GitHub
+            %li
+              %a{:href=>"http://wiki.github.com/opentransact/opentransact"} Wiki
             %li
               %a{:href=>"http://github.com/opentransact/opentransact/tree/master"} OpenTransact
             %li

@@ -1,2 +1,5 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $('form#new_transact').submit(function(){
+    return confirm("Are you sure you want to perform this payment? It can't be undone.");
+  });
+});

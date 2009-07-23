@@ -1,18 +1,47 @@
-%h1 Pay Someone
-
+%h1
+  -if @swp
+    =@transact.to
+    requested
+    =number_to_currency(@transact.amount)
+  -else
+    Pay someone
+    
 -form_for @transact do |f|
   %fieldset
-    .field
-      %label{:for=>"to"} Payee email address
-      %input{:name=>"to",:value=>@transact.to}
-    .field
-      %label{:for=>"amount"}
-        Amount
-        ="(available #{number_to_currency(current_user.balance)})"
-      %input{:name=>"amount",:value=>@transact.amount}
-    .field
-      %label{:for=>"memo"} Description
-      %input{:name=>"memo",:value=>@transact.memo,:size=>60}
-
-  =submit_tag "Pay"
+    -unless @swp
+      .field
+        %label{:for=>"to"}
+          Payee email address
+        %input{:name=>"to",:value=>@transact.to}
+        =error_message_on @transact, :payee
+      .field
+        %label{:for=>"amount"}
+          Amount
+          ="(available #{number_to_currency(current_user.balance)})"
+        %input{:name=>"amount",:value=>@transact.amount,:size=>(current_user.balance.to_s.length+2)}
+        =error_message_on @transact, :amount
+      .field
+        %label{:for=>"memo"}
+          Description
+        %input{:name=>"memo",:value=>@transact.memo,:size=>60}
+        =error_message_on @transact, :memo
+        
+    -else
+      %p
+        This has been requested in return for:
+      .memo_confirmation
+        =@transact.memo
+      %p
+        You currently have
+        =number_to_currency(current_user.balance)
+        available. Are you sure you want to do this?
+      %input{:name=>"to",:value=>@transact.to,:type=>'hidden'}
+      %input{:name=>"amount",:value=>@transact.amount,:type=>'hidden'}
+      %input{:name=>"memo",:value=>@transact.memo,:type=>'hidden'}
+      %input{:name=>"callback_url",:value=>params[:callback_url],:type=>'hidden'}
+      %input{:name=>"redirect_url",:value=>params[:redirect_url],:type=>'hidden'}
+      
+  %button{:type=>"submit"}= @swp ? "Pay #{@transact.to} #{number_to_currency(@transact.amount)}": "Pay"
+  -if params[:redirect_url]
+    =link_to "Cancel and return to site",@transact.append_results_to(params[:redirect_url]),:class=>"cancel"
   

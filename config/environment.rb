@@ -12,7 +12,7 @@ Rails::Initializer.run do |config|
   config.gem 'crafterm-comma',:lib=>'comma',:source=>"http://gems.github.com"
   config.gem 'haml', :lib => 'haml', :version => '2.2'
   config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
-  config.gem "oauth-plugin"
+  config.gem "oauth-plugin", :lib=>'oauth-plugin'
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers

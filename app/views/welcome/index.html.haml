@@ -1,7 +1,14 @@
-%h1 NuBux
+%h1 Electronic Monopoly Money
 %p 
   This is a sample electronic currency based on 
-  =link_to "OpenTransact","http://github.com/opentransact/opentransact/tree/master"
+  =link_to "OpenTransact","http://wiki.github.com/opentransact/opentransact/opentransact"
+  ="."
+  The value is backed mostly by hot air and does not imply any kind of promise.
 %p
-  Current Circulation:
-  =number_to_currency Transact.circulation
+  The goal is to have this match the standards developed on the
+  %a{:href=>"http://groups.google.com/group/agile-banking"} Agile Banking mailing list.
+  As well as provide an electronic currency for other applications to work on top of.
+-unless logged_in?
+  .signup_banner
+    =link_to "Signup","/users/new"
+    and you will receive $1000 NuBux until the end of July.

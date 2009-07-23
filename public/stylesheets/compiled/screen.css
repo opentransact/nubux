@@ -32,29 +32,47 @@ p, blockquote, pre, td, th { margin: 0; font-size: 1em; line-height: 1.5em; marg
 
 table { border-collapse: collapse; margin-bottom: 1.5em; }
 
-body { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; background-color: #888888; }
+body { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; background-color: #eeeeee; color: #222; }
 
 #container { width: 950px; margin: 0 auto; overflow: hidden; display: inline-block; margin: 1em auto 1em auto; }
 #container { display: block; }
 
+body.welcome h1 { margin: 0; font-size: 3em; line-height: 1em; margin-bottom: 0.5em; font-weight: bold; color: #444; }
+
+button.link { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; display: inline; font-size: 1em; text-align: left; color: blue; background: none; margin: 0; padding: 0; border: none; cursor: pointer; -moz-user-select: text; }
+
 #header { display: inline; float: left; margin-right: 10px; width: 950px; margin-bottom: 1em; }
 * html #header { overflow-x: hidden; }
 #header .top_bar { margin-top: 1em; padding: 0.5em; float: right; }
-#header ul.top_bar { margin: 0; padding: 0; border: 0; outline: 0; overflow: hidden; display: inline-block; background-color: #aaaaaa; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; padding: 0.25em 0.5em; }
+#header #balance { float: right; margin-right: 0.5em; }
+#header ul.top_bar { margin: 0; padding: 0; border: 0; outline: 0; overflow: hidden; display: inline-block; background-color: white; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; padding: 0.25em 0.5em; color: #666; }
 #header ul.top_bar { display: block; }
 #header ul.top_bar li { list-style-type: none; margin-left: 0px; white-space: nowrap; display: inline; float: left; padding-left: 4px; padding-right: 4px; }
 #header ul.top_bar li.first { padding-left: 0px; }
 #header ul.top_bar li.last { padding-right: 0px; }
 #header ul.top_bar li { border-left: 1px solid white; }
-#header ul.top_bar li a, #header ul.top_bar li button.link { color: #222; }
+#header ul.top_bar li a, #header ul.top_bar li button.link { color: #222; margin: 0; padding: 0.2em 0.5em; font-weight: bold; font-size: 1em; }
+#header ul.top_bar li a:hover, #header ul.top_bar li button.link:hover { text-decoration: underline; }
+#header ul.top_bar li form { display: inline; padding: 0; margin: 0; }
+#header ul.top_bar li form button.link { padding-top: 0; }
+#header ul.top_bar li form button.link:hover { text-decoration: underline; }
+#header ul.top_bar li .amount { padding: 0.2em 0.5em; -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; background: #444; color: #CC0; }
+#header ul.top_bar li a.amount { color: yellow; font-weight: normal; }
 #header ul.top_bar li.first { border-left: none; }
 
-#content { display: inline; float: left; margin-right: 10px; width: 950px; background-color: white; padding: 1em; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; }
+#content { display: inline; float: left; margin-right: 10px; width: 950px; }
 * html #content { overflow-x: hidden; }
+#content .body { background-color: white; -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; padding: 1em; }
+#content .body .flash { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; background: #AFA; padding: 0.5em; margin-bottom: 0.5em; }
+#content .body .flash.error { background: #FAA; }
+#content form input { font-size: 1.2em; }
+#content form button { -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; padding: 0.2em 0.5em; font-weight: bold; font-size: 1.2em; background: #AFA; color: #040; border: 3px solid #6A6; }
+#content form button:hover { background: #8D8; }
+#content form a.cancel { font-size: 1.2em; }
+#content form .memo_confirmation { border: 1px solid #aaa; padding: 0.5em; font-size: 1.2em; color: #006; margin: 0.5em 0; }
+#content form .formError { color: red; display: inline; }
 
-button.link { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; font-size: 1em; text-align: left; color: blue; background: none; margin: 0; padding: 0; border: none; cursor: pointer; -moz-user-select: text; }
-
-#footer { display: inline; float: left; margin-right: 10px; width: 950px; color: white; margin-top: 2em; font-size: %80; }
+#footer { display: inline; float: left; margin-right: 10px; width: 950px; margin-top: 2em; font-size: %80; }
 * html #footer { overflow-x: hidden; }
 #footer ul { margin: 0; padding: 0; border: 0; outline: 0; overflow: hidden; display: inline-block; }
 #footer ul { display: block; }
@@ -68,8 +86,11 @@ button.link { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: 
 #header a, #footer a { text-decoration: none; }
 #header a:hover, #footer a:hover { text-decoration: underline; }
 
-#logo { font-weight: bold; font-size: 1.4em; }
-#logo a { color: white; }
+#logo { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; padding: 0.2em 0.5em; display: inline-block; background: #222; font-weight: bold; font-size: 1.4em; }
+#logo a * { display: inline; padding: 0; margin: 0; }
+#logo a .nu { color: #FF0; }
+#logo a .bux { color: #CC0; }
+#logo a .not_equal { color: #AAA; }
 
 strong { font-weight: bold; }
 
@@ -92,6 +113,12 @@ textarea { padding: 2px; }
 
 input { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; }
 
-table.widel-ledger tr td { padding: 0.2em; }
+table.widel-ledger a { text-decoration: none; }
+table.widel-ledger a:hover { text-decoration: underline; }
+table.widel-ledger tr td { padding: 0.2em 0.4em; }
+table.widel-ledger tr td.widel-amount, table.widel-ledger tr td.balance { text-align: right; }
 table.widel-ledger tr th { border-bottom: 1px solid #666; }
 table.widel-ledger tr.summary { font-weight: bold; border-top: 1px solid #666; }
+
+.signup_banner { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; padding: 0.2em 0.5em; font-size: 1.2em; background: #afa; color: #040; }
+.signup_banner a { font-weight: bold; color: #040; }

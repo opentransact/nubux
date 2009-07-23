@@ -4,4 +4,4 @@ thoughtbot-clearance --version "0.6.9" --source gems.github.com
 fastercsv --version 1.5.0
 crafterm-comma --version '0.1.8' --source gems.github.com
 oauth --version '0.3.5'
-oauth-plugin --version '0.3.7'
+oauth-plugin --version '0.3.8'

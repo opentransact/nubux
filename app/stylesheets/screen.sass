@@ -9,42 +9,21 @@
 body
   +normal-text
   background-color= !dark_background_color
+  color: #222
   
 #container
   +container
   margin: 1em auto 1em auto
-  
-#header
-  +column(24)
-  margin-bottom: 1em
 
-  .top_bar
-    margin-top: 1em
-    padding: 0.5em
-    float: right
-
-  ul.top_bar
-    +horizontal-list
-    background-color= !dark_background_color + #222
-    +rounded(0.5em)
-    padding: 0.25em 0.5em
-    li
-      border-left: 1px solid white
-      a,button.link
-        color: #222
-      
-      
-    li.first
-      border-left: none
-    
-#content
-  +column(24)
-  background-color= !background_color
-  padding: 1em
-  +rounded(0.5em)
+body.welcome
+  h1
+    +calculate-baseline(3,3em)
+    font-weight: bold
+    color: #444
 
 button.link
   +normal-text
+  display: inline
   font-size: 1em
   text-align: left
   color: blue
@@ -55,10 +34,106 @@ button.link
   cursor: pointer
   -moz-user-select: text
 
+#header
+  +column(24)
+  margin-bottom: 1em
+
+  .top_bar
+    margin-top: 1em
+    padding: 0.5em
+    float: right
+
+  #balance
+    float: right
+    margin-right: 0.5em
+      
+  ul.top_bar
+    +horizontal-list
+    background-color= !background_color
+    +rounded(0.5em)
+    padding: 0.25em 0.5em
+    color: #666
+    li
+      border-left: 1px solid white
+      a,button.link
+        color: #222
+        margin: 0
+        padding: 0.2em 0.5em
+        font-weight: bold
+        font-size: 1em
+        &:hover
+          text-decoration: underline
+
+      form
+        display: inline
+        padding: 0
+        margin: 0
+        
+        button.link
+          padding-top: 0
+          
+          &:hover
+            text-decoration: underline
+        
+        
+
+      .amount
+        padding: 0.2em 0.5em
+        +rounded(0.2em)
+        background: #444
+        color: #CC0
+      a.amount
+        color: yellow
+        font-weight: normal
+      
+    li.first
+      border-left: none
+    
+#content
+  +column(24)
+  .body
+    background-color= !background_color
+    +rounded(0.2em)
+    padding: 1em
+    
+    .flash
+      +rounded(0.2em)
+      background: #AFA
+      padding: 0.5em
+      margin-bottom: 0.5em
+      
+      &.error
+        background: #FAA
+  form
+    input
+      font-size: 1.2em
+    button
+      +rounded(0.5em)
+      padding: 0.2em 0.5em
+      font-weight: bold
+      font-size: 1.2em
+      background: #AFA
+      color: #040
+      border: 3px solid #6A6
+      
+      &:hover
+        background: #8D8
+    a.cancel
+      font-size: 1.2em
+      
+    .memo_confirmation
+      border: 1px solid #aaa
+      padding: 0.5em
+      font-size: 1.2em
+      color: #006
+      margin: 0.5em 0
+    
+    .formError
+      color: red
+      display: inline
   
 #footer
   +column(24)
-  color: white
   margin-top: 2em
   font-size: %80
   ul
@@ -77,15 +152,30 @@ button.link
     +hover-link
 
 #logo
+  +rounded(0.2em)
+  padding: 0.2em 0.5em
+  display: inline-block
+  background: #222
   font-weight: bold
   font-size: 1.4em
   a
-    color: white
+    *
+      display: inline
+      padding: 0
+      margin: 0
+    .nu
+      color: #FF0
+    .bux
+      color: #CC0
+    .not_equal
+      color: #AAA
 
 strong
   font-weight: bold
+  
 code
   font-family: 'monaco', 'bitstream vera sans mono', 'lucida console', 'andale mono', 'lucida console', monospace
+  
 fieldset
   margin-bottom: 0.5em
   legend
@@ -124,12 +214,27 @@ input
   +normal-text
   
 table.widel-ledger
+  a
+    +hover-link
   tr
     td
-      padding: 0.2em
+      padding: 0.2em 0.4em
+      
+      &.widel-amount,&.balance
+        text-align: right
     th
       border-bottom: 1px solid #666
   tr.summary
     font-weight: bold
     border-top: 1px solid #666
 
+.signup_banner
+  +rounded(0.2em)
+  padding: 0.2em 0.5em
+  font-size: 1.2em
+  background: #afa
+  color: #040
+  a
+    font-weight: bold
+    color: #040
+  
