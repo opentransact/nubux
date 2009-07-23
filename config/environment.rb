@@ -8,9 +8,9 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'oauth', :version => '0.3.5'
-  config.gem 'thoughtbot-clearance', :lib => 'clearance', :source => 'http://gems.github.com', :version => '0.6.9'
+  config.gem 'thoughtbot-clearance', :lib => 'clearance', :source => 'http://gems.github.com'
   config.gem 'crafterm-comma',:lib=>'comma',:source=>"http://gems.github.com"
-  config.gem 'haml', :lib => 'haml', :version => '2.2'
+  config.gem 'haml', :lib => 'haml', :version => '>=2.2'
   config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
   config.gem "oauth-plugin", :lib=>'oauth-plugin'
   
