@@ -88,9 +88,10 @@ button.link { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: 
 
 #logo { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; padding: 0.2em 0.5em; display: inline-block; background: #222; font-weight: bold; font-size: 1.4em; }
 #logo a * { display: inline; padding: 0; margin: 0; }
-#logo a .nu { color: #FF0; }
-#logo a .bux { color: #CC0; }
-#logo a .not_equal { color: #AAA; }
+#logo a .bling { color: #EE2; }
+#logo a .blang { color: #DD4; }
+#logo a .blong { color: #BB2; }
+#logo a .not_equal { font-weight: normal; color: #CCC; }
 
 strong { font-weight: bold; }
 
