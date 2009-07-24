@@ -3,6 +3,17 @@ class TransactsController < ApplicationController
   
   def index
     @transactions=current_user.transactions
+    respond_to do |format|
+      format.html
+      format.json do 
+        render :json=>@transactions.to_json
+      end
+      format.xml do 
+        render :xml=>@transactions.to_xml(:root=>"txns")
+      end
+      format.atom
+      format.csv { render :csv => @transactions }
+    end
   end
   
   def new
@@ -30,6 +41,16 @@ class TransactsController < ApplicationController
   
   def show
     @transact=current_user.transactions.find params[:id]
+    respond_to do |format|
+      format.html
+      format.json do 
+        render :json=>@transact.to_json
+      end
+      format.xml do 
+        render :xml=>@transact.to_xml
+      end
+    end
+    
   end
   
 end

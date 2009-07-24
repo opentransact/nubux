@@ -83,7 +83,15 @@ class Transact < ActiveRecord::Base
       }
     end
   end
-    
+  
+  def to_xml(options={})
+    results.to_xml(options.merge(:root => "txn"))
+  end
+  
+  def to_json(options={})
+    results.to_json
+  end
+  
   protected
   
   def set_default_memo
@@ -121,6 +129,14 @@ class Transact < ActiveRecord::Base
       @http.use_ssl = true if callback_uri.scheme == "https"
     end
     @http
+  end
+
+  comma do
+    memo
+    payer
+    payee
+    amount
+    created_at "Transaction date"
   end
   
 end

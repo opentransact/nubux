@@ -113,9 +113,9 @@ textarea { padding: 2px; }
 
 input { font-family: Helvetica Neue, Arial, Helvetica, sans-serif; color: #333333; }
 
-table.widel-ledger a { text-decoration: none; }
+table.widel-ledger a { text-decoration: none; color: #666; }
 table.widel-ledger a:hover { text-decoration: underline; }
-table.widel-ledger tr td { padding: 0.2em 0.4em; }
+table.widel-ledger tr td { padding: 0 1em 0.5em 0; }
 table.widel-ledger tr td.widel-amount, table.widel-ledger tr td.balance { text-align: right; }
 table.widel-ledger tr th { border-bottom: 1px solid #666; }
 table.widel-ledger tr.summary { font-weight: bold; border-top: 1px solid #666; }

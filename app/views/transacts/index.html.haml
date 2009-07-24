@@ -5,7 +5,7 @@
 %table.widel-ledger
   %tr
     %th Description
-    %th Counter Party
+    %th Other Party
     %th Time
     %th Amount
   -@transactions.each do |tx|
@@ -20,5 +20,11 @@
         =number_to_currency(tx.payer==current_user ? -tx.amount : tx.amount, :unit=>'')
   %tfooter
     %tr.summary
-      %td{:colspan=>3} Balance
+      %td{:colspan=>2}
+        Other formats
+        =link_to "CSV",transacts_path(:format=>:csv)
+        =link_to "XML",transacts_path(:format=>:xml)
+        =link_to "JSON",transacts_path(:format=>:json)
+        =link_to "Atom",transacts_path(:format=>:atom)
+      %td Balance
       %td.balance= number_to_currency(current_user.balance)

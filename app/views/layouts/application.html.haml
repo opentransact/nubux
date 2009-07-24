@@ -10,9 +10,14 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     %link{:href=>transacts_path,:rel=>'opentransact-asset'}
     %meta{:name=>"viewport",:content=>"width=700"}
+    
     %script{:src=>"http://www.google.com/jsapi", :type=>"text/javascript"}
     =javascript_tag 'google.load("jquery", "1")'
     =javascript_include_tag "application"
+    
+    -if logged_in?
+      =auto_discovery_link_tag :atom,transacts_url(:format=>:atom)
+    
   %body{:class=>controller_name}
     #container
       #header

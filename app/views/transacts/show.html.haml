@@ -2,11 +2,19 @@
   Transaction details
 .widel-ledger
   .widel-entry
+    Payment of
+    %span.widel-amount
+      =number_to_currency(@transact.payer==current_user ? -@transact.amount : @transact.amount)
+    =@transact.payer==current_user ? "made to" : "received from"
+    %span.widel-account
+      =widel_account @transact.counterparty_for(current_user)
+    on the
+    %span.widel-timestamp{:title=>@transact.created_at.rfc822}
+      =@transact.created_at.to_formatted_s(:long)
+    for:
     .widel-memo.description
       =link_to @transact.memo, transact_path(@transact),:class=>"widel-entry-id"
-    .widel-account
-      =widel_account @transact.counterparty_for(current_user)
-    .widel-timestamp{:title=>@transact.created_at.rfc822}
-      =@transact.created_at.to_formatted_s(:long)
-    .widel-amount
-      =number_to_currency(@transact.payer==current_user ? -@transact.amount : @transact.amount)
+%p
+  Other formats
+  =link_to "XML",transact_path(@transact,:format=>:xml)
+  =link_to "JSON",transact_path(@transact,:format=>:json)
