@@ -33,6 +33,6 @@ class User < ActiveRecord::Base
   
   # Fund all new accounts with 1000
   def fund_account
-    Transact.issue_to self,1000
+    Transact.issue_to self,50
   end
 end
