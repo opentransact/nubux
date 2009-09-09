@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
   alias_method :login_required, :authenticate
   
   # To make clearance work with oauth_plugin
-  def current_user
-    @current_user ||= super
-  end
+#  def current_user
+#    @current_user ||= super
+#  end
   
   def authorized?
     true
