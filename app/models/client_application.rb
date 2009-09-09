@@ -42,14 +42,14 @@ class ClientApplication < ActiveRecord::Base
   end
     
   def create_request_token
-    RequestToken.create :client_application => self,:callback_url=>token_callback_url
+    RequestToken.create :client_application => self,:callback_url=>self.token_callback_url
   end
   
 protected
   
   def generate_keys
-    @oauth_client = oauth_server.generate_consumer_credentials
-    self.key = @oauth_client.key
-    self.secret = @oauth_client.secret
+    oauth_client = oauth_server.generate_consumer_credentials
+    self.key = oauth_client.key[0,20]
+    self.secret = oauth_client.secret[0,40]
   end
 end

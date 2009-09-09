@@ -7,8 +7,8 @@ RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'oauth', :version => '0.3.5'
   config.gem 'thoughtbot-clearance', :lib => 'clearance', :source => 'http://gems.github.com'
+  config.gem 'oauth', :version => '0.3.5'
   config.gem 'crafterm-comma',:lib=>'comma',:source=>"http://gems.github.com"
   config.gem 'haml', :lib => 'haml', :version => '>=2.2'
   config.gem "openrain-action_mailer_tls", :lib => "smtp_tls.rb", :source => "http://gems.github.com"
@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+  config.plugins = [ "thoughtbot-clearance", :oauth,'oauth-plugin', :all ]
 
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.

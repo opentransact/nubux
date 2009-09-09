@@ -14,7 +14,17 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   protected 
-
+  
+  # Hack for it to work with clearance
+  def current_token=(token)
+    @current_token=token
+    if @current_token
+      @current_user=@_current_user=@current_token.user
+      @current_client_application=@current_token.client_application 
+    end
+    @current_token
+  end
+  
   alias_method :login_required, :authenticate
   
   # To make clearance work with oauth_plugin
