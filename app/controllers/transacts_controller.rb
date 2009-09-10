@@ -1,6 +1,6 @@
 class TransactsController < ApplicationController
   before_filter :login_or_oauth_required
-  
+  skip_before_filter :verify_authenticity_token,:only=>:create
   def index
     @transactions=current_user.transactions
     respond_to do |format|
@@ -31,7 +31,17 @@ class TransactsController < ApplicationController
         redirect_to @transact.append_results_to(params[:redirect_url])
       else
         flash[:notice]="You've made a payment of #{@transact.amount} to #{@transact.to}"
-        redirect_to transacts_url
+        respond_to do |format|
+          format.html do
+            redirect_to transacts_url
+          end
+          format.json do
+            render :json=>@transact.to_json
+          end
+          format.xml do
+            render :xml=>@transact.to_xml
+          end
+        end
       end
     else
       flash[:error]="Your payment could not be made"
