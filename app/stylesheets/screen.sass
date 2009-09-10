@@ -1,8 +1,14 @@
-@import base.sass
 @import compass/reset.sass
-@import blueprint/screen.sass
+@import compass/typography
+@import partials/base.sass
+@import compass/reset.sass
+@import partials/typography.sass
+@import blueprint/modules/grid.sass
+@import blueprint/modules/utilities.sass
+@import blueprint/modules/interaction.sass
 @import compass/utilities.sass
-@import baseline.sass
+@import partials/rounded.sass
+@import partials/buttons.sass
 
 +clean-baseline
 
@@ -61,6 +67,7 @@ button.link
         padding: 0.2em 0.5em
         font-weight: bold
         font-size: 1em
+
         &:hover
           text-decoration: underline
 
@@ -215,19 +222,24 @@ textarea
   
 input
   +normal-text
-  
+
+table
+  td,th
+    padding: 0 1em 0.5em 0
+  th
+    border-bottom: 1px solid #666
+  button
+    font-size: 12px
+    padding: 2px 4px
+    
 table.widel-ledger
   a
     +hover-link
     color: #666
   tr
     td
-      padding: 0 1em 0.5em 0
-      
       &.widel-amount,&.balance
         text-align: right
-    th
-      border-bottom: 1px solid #666
   tr.summary
     font-weight: bold
     border-top: 1px solid #666

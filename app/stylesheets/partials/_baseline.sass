@@ -1,0 +1,57 @@
+!document_base_line=1.66em
+
+=calculate-baseline(!factor=1,!baseline=!document_base_line)
+  margin: 0
+  font-size = !factor +"em"
+  line-height = !baseline/!factor
+  @if !baseline == !document_base_line
+    margin-bottom = !baseline/!factor
+  @else
+    margin-bottom = (!baseline/!factor)/(!baseline/!document_base_line)
+
+=padded-baseline(!factor=1,!baseline=!document_base_line)
+  margin: 0
+  font-size = !factor +"em"
+  line-height = !baseline/!factor
+  padding= (!baseline/!factor)/4 (!baseline/!factor)/2
+  @if !baseline == !document_base_line
+    margin-bottom = (!baseline/!factor)/4
+    margin-top = (!baseline/!factor)/4
+  @else
+    margin-bottom = (!baseline/!factor)/(!baseline/!document_base_line)
+
+
+=clean-baseline(!baseline_size=16px,!line_height=!document_base_line)
+  body
+    font-size: !baseline_size
+    line-height= !line_height
+    margin: 0
+    padding: 0
+  
+  h1
+    +calculate-baseline(3.32,2*!document_base_line)
+  h2
+    +calculate-baseline(1.66)
+  h3
+    +calculate-baseline(1.5)
+  h4
+    +calculate-baseline(1.25)
+  h5
+    +calculate-baseline(1.125)
+
+
+  p, blockquote, pre, td, th,ul,ol 
+    +calculate-baseline
+  ul,ol
+    margin-left: 1.5em
+
+
+  table 
+    border-collapse: collapse
+    margin-bottom: !document_base_line
+    
+=smaller
+  +calculate-baseline(0.8)
+=bigger
+  +calculate-baseline(1.125)
+

@@ -1,0 +1,185 @@
+@import compass/utilities/general/inline_block.sass
+@import compass/utilities/general/float.sass
+
+// Button Font
+!blueprint_button_font_family ||= !blueprint_font_family
+
+// Default Button Colors
+!blueprint_button_border_color ||= #DEDEDE
+!blueprint_button_background_color ||= #F5F5F5
+!blueprint_button_font_color ||= #565656
+
+// Default Button Hover Colors
+!blueprint_button_hover_border_color ||= #C2E1EF
+!blueprint_button_hover_background_color ||= #DFF4FF
+!blueprint_button_hover_font_color ||= #336699
+
+// Default Button Active Colors
+!blueprint_button_active_border_color ||= #6299C5
+!blueprint_button_active_background_color ||= #6299C5
+!blueprint_button_active_font_color ||= #FFF
+
+// Positive Button Colors
+!blueprint_positive_button_border_color ||= #CEC
+!blueprint_positive_button_background_color ||= #DFD
+!blueprint_positive_button_font_color ||= #060
+
+// Positive Button Hover Colors
+!blueprint_positive_button_hover_border_color ||= #AEA
+!blueprint_positive_button_hover_background_color ||= #BFB
+!blueprint_positive_button_hover_font_color ||= #060
+
+// Positive Button Active Colors
+!blueprint_positive_button_active_border_color ||= #4E4
+!blueprint_positive_button_active_background_color ||= #6F6
+!blueprint_positive_button_active_font_color ||= #FFF
+
+// Negative Button Colors
+!blueprint_negative_button_border_color ||= #ECC
+!blueprint_negative_button_background_color ||= #FDD
+!blueprint_negative_button_font_color ||= #600
+
+// Negative Button Hover Colors
+!blueprint_negative_button_hover_border_color ||= #EAA
+!blueprint_negative_button_hover_background_color ||= #FBB
+!blueprint_negative_button_hover_font_color ||= #600
+
+// Negative Button Active Colors
+!blueprint_negative_button_active_border_color ||= #E44
+!blueprint_negative_button_active_background_color ||= #F66
+!blueprint_negative_button_active_font_color ||= #FFF
+
+//**
+  Sets the colors for a button
+  @param border_highlight_color
+    The highlight color defaults to whatever is the value of the border_color but it's one shade lighter.
+=button-colors(!font_color = !blueprint_button_font_color, !bg_color = !blueprint_button_background_color, !border_color = !blueprint_button_border_color, !border_highlight_color = !border_color + #101010)
+  :background-color= !bg_color
+  :border-color= !border_highlight_color !border_color !border_color !border_highlight_color
+  :color= !font_color
+
+
+=full-button-colors(!font_color = !blueprint_button_font_color, !bg_color = !blueprint_button_background_color, !border_color = !blueprint_button_border_color, !border_highlight_color = !border_color + #101010)
+  +button-colors(!font_color,!bg_color,!border_color)
+  &:hover
+    +button-colors(!font_color-#222,!bg_color-#222,!border_color-#222)
+  &:active
+    +button-colors(!font_color,!bg_color+#111,!border_color+#111)
+
+
+//**
+  Sets the colors for a button in the positive
+  @param border_highlight_color
+    The highlight color defaults to whatever is the value of the border_color but it's one shade lighter.
+=button-positive-colors(!font_color = !blueprint_positive_button_font_color, !bg_color = !blueprint_positive_button_background_color, !border_color = !blueprint_positive_button_border_color, !border_highlight_color = !border_color + #101010)
+  &.positive
+    +button-colors(!font_color, !bg_color, !border_color, !border_highlight_color)
+    &:active
+      +button-colors(!blueprint_positive_button_active_font_color, !blueprint_positive_button_active_background_color, !blueprint_positive_button_active_border_color, !blueprint_positive_button_active_border_color+ #101010)
+    &:hover
+      +button-colors(!blueprint_positive_button_hover_font_color, !blueprint_positive_button_hover_background_color, !blueprint_positive_button_hover_border_color, !blueprint_positive_button_hover_border_color+ #101010)
+
+//**
+  Sets the colors for a button in the negative
+  @param border_highlight_color
+    The highlight color defaults to whatever is the value of the border_color but it's one shade lighter.
+=button-negative-colors(!font_color = !blueprint_negative_button_font_color, !bg_color = !blueprint_negative_button_background_color, !border_color = !blueprint_negative_button_border_color, !border_highlight_color = !border_color + #101010)
+  &.negative
+    +button-colors(!font_color, !bg_color, !border_color, !border_highlight_color)
+    &:active
+      +button-colors(!blueprint_negative_button_active_font_color, !blueprint_negative_button_active_background_color, !blueprint_negative_button_active_border_color, !blueprint_negative_button_active_border_color+ #101010)
+    &:hover
+      +button-colors(!blueprint_negative_button_hover_font_color, !blueprint_negative_button_hover_background_color, !blueprint_negative_button_hover_border_color, !blueprint_negative_button_hover_border_color+ #101010)
+
+//**
+  Sets the colors for a button in the active state
+  @param border_highlight_color
+    The highlight color defaults to whatever is the value of the border_color but it's one shade lighter.
+=button-active-colors(!font_color = !blueprint_button_active_font_color, !bg_color = !blueprint_button_active_background_color, !border_color = !blueprint_button_active_border_color, !border_highlight_color = !border_color + #101010)
+  &:active
+    +button-colors(!font_color, !bg_color, !border_color, !border_highlight_color)
+
+//**
+  Sets the colors for a button in the hover state.
+  @param border_highlight_color
+    The highlight color defaults to whatever is the value of the border_color but it's one shade lighter.
+=button-hover-colors(!font_color = !blueprint_button_hover_font_color, !bg_color = !blueprint_button_hover_background_color, !border_color = !blueprint_button_hover_border_color, !border_highlight_color = !border_color + #101010)
+  &:hover
+    +button-colors(!font_color, !bg_color, !border_color, !border_highlight_color)
+
+=button-base(!float = false)
+  @if !float
+    :display block
+    +float(!float)
+  @else
+    +inline-block
+  :margin 0.7em 0.5em 0.7em 0
+  :border-width 1px
+  :border-style solid
+  :font-family= !blueprint_button_font_family
+  :font-size 100%
+  :line-height 130%
+  :text-decoration none
+  :font-weight bold
+  :cursor pointer
+  img
+    :margin 0 3px -3px 0 !important
+    :padding 0
+    :border none
+    :width 16px
+    :height 16px
+    :float none
+    
+
+=anchor-button(!float = false)
+  +button-base(!float)
+  +button-colors
+  +button-positive-colors
+  +button-negative-colors
+  +button-active-colors
+  +button-hover-colors
+  :padding 5px 10px 5px 7px
+
+=button-button(!float = false)
+  +button-base(!float)
+  +button-colors
+  +button-active-colors
+  +button-hover-colors
+  +button-positive-colors
+  +button-negative-colors
+  
+  :width auto
+  :overflow visible
+  :padding 4px 10px 3px 7px
+  &[type]
+    :padding 4px 10px 4px 7px
+    :line-height 17px
+  *:first-child+html &[type]
+    :padding 4px 10px 3px 7px
+  
+=status-button(!float = false)
+  +button-base(!float)
+  border: none
+  padding: 5px 10px 5px 7px
+
+=slim-button
+  +button-base
+  +rounded
+  +button-colors
+  +button-active-colors
+  +button-hover-colors
+  +button-positive-colors
+  +button-negative-colors
+  
+  :width auto
+  :overflow visible
+  padding: 2px 10px 2px 7px
+  margin: 0 0.25em
+  font-size: 90%
+  
+button[type=submit]
+  +button-button
+  +rounded
+    
+a.button
+  +anchor-button

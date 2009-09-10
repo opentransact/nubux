@@ -1,9 +1,8 @@
-.flash= flash[:notice]
-%h1 OAuth Client Applications
+%h1 Applications
 - unless @tokens.empty?
 
   %p 
-    The following tokens have been issued to applications in your name
+    The following applications have been linked to your account. You can revoke the link at any time.
     
   %table
     %tr
@@ -17,7 +16,7 @@
         %td
           - form_tag :controller => 'oauth', :action => 'revoke' do
             = hidden_field_tag 'token', token.token
-            = submit_tag "Revoke!"
+            = negative_button "Revoke!"
 
 %h3 Application Developers
 
