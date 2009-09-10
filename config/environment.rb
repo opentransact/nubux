@@ -49,6 +49,6 @@ end
 
 DO_NOT_REPLY = "donotreply@nubux.heroku.com"
 
-ISSUER_EMAIL = "issuer@nubux.heroku.com"
+ISSUER_EMAIL = "nubux@stakeventures.com"
 
 ActiveSupport::JSON.backend = 'JSONGem'
